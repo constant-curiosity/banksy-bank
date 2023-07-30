@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+      font-family: "BrandaYolq";
+      src: url("../public/fonts/Branda-yolq.ttf") format('truetype');
+    }
+  }
