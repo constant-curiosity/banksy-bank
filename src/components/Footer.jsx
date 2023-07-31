@@ -1,4 +1,5 @@
 import { FooterNavigation } from "../lib/NavigationLinks";
+import { NavLink } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-[#cccccc]">
@@ -9,12 +10,16 @@ export default function Footer() {
         >
           {FooterNavigation.main.map((item) => (
             <div key={item.name} className="pb-6">
-              <a
-                href={item.href}
-                className="text-sm leading-6 text-[#B30000] hover:text-gray-900"
+              <NavLink
+                to={item.href}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#B30000] font-semibold"
+                    : "text-[#FFFFFF] hover:text-[#808080]"
+                }
               >
                 {item.name}
-              </a>
+              </NavLink>
             </div>
           ))}
         </nav>

@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 export default function Error() {
   return (
     <>
@@ -10,7 +11,7 @@ export default function Error() {
           />
         </div>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
-          <p className="text-base font-semibold leading-8">404</p>
+          <p className="text-2xl font-semibold leading-8">404</p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
             Page not found
           </h1>
@@ -18,9 +19,12 @@ export default function Error() {
             Sorry, we couldn’t find the page you’re looking for.
           </p>
           <div className="mt-10 flex justify-center">
-            <a href="#" className="text-sm font-semibold leading-7">
+            <NavLink
+              to=".."
+              className="text-lg hover:text-[#B30000] font-semibold leading-7"
+            >
               <span aria-hidden="true">&larr;</span> Back to home
-            </a>
+            </NavLink>
           </div>
         </div>
       </main>

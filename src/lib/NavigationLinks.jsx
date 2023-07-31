@@ -1,14 +1,14 @@
-export const MainNavigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+export const HeaderNavigation = [
+  { name: "Home", href: "/" },
+  { name: "Crypto", href: "crypto" },
+  // { name: "Marketplace", href: "#" },
+  { name: "About", href: "about" },
 ];
 
 export const FooterNavigation = {
   main: [
-    { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Jobs", href: "#" },
+    { name: "Home", href: "/" },
+    { name: "Crypto", href: "crypto" },
+    { name: "About", href: "about" },
   ],
 };
