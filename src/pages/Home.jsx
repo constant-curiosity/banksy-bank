@@ -30,7 +30,7 @@ export default function Home() {
             <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
               <img
                 src="/Banksy_Art/American_Depress.jpg"
-                alt=""
+                alt="American depress card, sign your life away"
                 className="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
               />
             </div>
@@ -38,21 +38,21 @@ export default function Home() {
               <div className="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
                 <img
                   src="/Banksy_Art/LifeStyle_2.webp"
-                  alt=""
+                  alt="Sorry your order for your new life is out of stock"
                   className="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
                 />
               </div>
               <div className="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
                 <img
                   src="/Banksy_Art/10_Pound_Note.jpg"
-                  alt=""
+                  alt="Banksy of England ten pound note"
                   className="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
                 />
               </div>
               <div className="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
                 <img
                   src="/Banksy_Art/Love_Over_Money.jpg"
-                  alt=""
+                  alt="Man pointing to love over money"
                   className="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
                 />
               </div>

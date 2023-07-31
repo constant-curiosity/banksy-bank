@@ -38,7 +38,7 @@ export default function MainNavigation() {
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
           <NavLink
-            href="#"
+            to=".."
             className="rounded-md bg-[#B30000] px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-[#FF6666] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Log in
@@ -62,3 +62,4 @@ export default function MainNavigation() {
     </header>
   );
 }
+//Is everything in the className needed (line 42)? Can we simplify it?

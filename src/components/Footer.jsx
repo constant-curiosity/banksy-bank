@@ -8,17 +8,17 @@ export default function Footer() {
           className="flex flex-row justify-center space-x-12"
           aria-label="Footer"
         >
-          {FooterNavigation.main.map((item) => (
-            <div key={item.name} className="pb-6">
+          {FooterNavigation.main.map((link) => (
+            <div key={link.name} className="pb-6">
               <NavLink
-                to={item.href}
+                to={link.href}
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#B30000] font-semibold"
                     : "text-[#FFFFFF] hover:text-[#808080]"
                 }
               >
-                {item.name}
+                {link.name}
               </NavLink>
             </div>
           ))}
@@ -30,3 +30,4 @@ export default function Footer() {
     </footer>
   );
 }
+//How to make the date dynamic so it updates itself yearly.

@@ -6,7 +6,7 @@ export default function Error() {
         <div className="absolute inset-0">
           <img
             src="public/Banksy_Art/Cancelled.jpg"
-            alt=""
+            alt="You dreams have been cancelled"
             className="w-full h-full object-cover object-top"
           />
         </div>
