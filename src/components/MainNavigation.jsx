@@ -16,7 +16,7 @@ export default function MainNavigation() {
         <div className="flex lg:flex-1">
           <NavLink
             to=".."
-            className="font-Branda-yolq text-4xl text-[#FFFFFF] hover:text-[#808080]"
+            className="font-Branda-yolq text-6xl text-[#FFFFFF] hover:text-[#808080]"
           >
             <span>Banksy Bank</span>
           </NavLink>
@@ -38,7 +38,13 @@ export default function MainNavigation() {
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
           <NavLink
-            to=".."
+            to="signup"
+            className="hidden lg:block lg:text-lg lg:font-semibold lg:leading-6 text-[#FFFFFF] hover:text-[#808080]"
+          >
+            Sign Up <span aria-hidden="true">&rarr;</span>
+          </NavLink>
+          <NavLink
+            to="login"
             className="rounded-md bg-[#B30000] px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-[#FF6666] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Log in
@@ -47,7 +53,7 @@ export default function MainNavigation() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[#FFFFFF]"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>

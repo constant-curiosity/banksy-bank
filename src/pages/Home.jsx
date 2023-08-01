@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 export default function Home() {
   return (
     <div className="overflow-hidden bg-white py-32">
@@ -18,12 +19,12 @@ export default function Home() {
               fugiat. Quasi aperiam sit non sit neque reprehenderit.
             </p>
             <div className="mt-10 flex">
-              <a
-                href="#"
+              <NavLink
+                to="signup"
                 className="rounded-md bg-[#B30000] px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-[#FF6666] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign Up <span aria-hidden="true">&rarr;</span>
-              </a>
+              </NavLink>
             </div>
           </div>
           <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">

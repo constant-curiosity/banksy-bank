@@ -23,42 +23,44 @@ export default function MobileNavigation({
           >
             <span>Banksy Bank</span>
           </NavLink>
-          <a
-            to=".."
+          <NavLink
+            to="signup"
             className="ml-auto rounded-md bg-[#B30000] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#FF6666] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            onClick={() => setMobileMenuOpen(false)}
           >
             Sign up
-          </a>
+          </NavLink>
           <button
             type="button"
-            className="-m-2.5 rounded-md p-2.5 text-[#FFFFFF] hover:text-[#B30000]"
+            className="-m-2.5 rounded-md p-2.5 text-[#FFFFFF]"
             onClick={() => setMobileMenuOpen(false)}
           >
             <span className="sr-only">Close menu</span>
-            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+            <XMarkIcon className="text-[#FFFFFF] h-6 w-6" aria-hidden="true" />
           </button>
         </div>
         <div className="mt-6 flow-root">
-          <div className="-my-6 divide-y divide-gray-500/10">
+          <div className="-my-6 divide-y divide-[#B30000]">
             <div className="space-y-2 py-6">
               {HeaderNavigation.map((link) => (
                 <NavLink
                   onClick={() => setMobileMenuOpen(false)}
                   key={link.name}
                   to={link.href}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-[#FFFFFF] hover:text-[#808080]"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-[#FFFFFF]"
                 >
                   {link.name}
                 </NavLink>
               ))}
             </div>
             <div className="py-6">
-              <a
-                href="#"
+              <NavLink
+                to="login"
                 className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-[#FFFFFF] hover:text-[#808080]"
+                onClick={() => setMobileMenuOpen(false)}
               >
                 Log in
-              </a>
+              </NavLink>
             </div>
           </div>
         </div>
