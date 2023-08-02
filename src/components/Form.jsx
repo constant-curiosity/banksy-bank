@@ -1,7 +1,4 @@
-//IF the path name is "signup" then change some of the test in the component ELSE
-//Use the default text
-
-export default function Form() {
+export default function Form({ pathname }) {
   return (
     <>
       <form action="#" method="POST" className="space-y-6">
@@ -14,7 +11,6 @@ export default function Form() {
           </label>
           <div className="mt-3">
             <input
-              id="email"
               name="email"
               type="email"
               required
@@ -22,7 +18,6 @@ export default function Form() {
             />
           </div>
         </div>
-
         <div>
           <label
             htmlFor="password"
@@ -32,22 +27,39 @@ export default function Form() {
           </label>
           <div className="mt-3">
             <input
-              id="password"
               name="password"
               type="password"
-              autoComplete="current-password"
               required
               className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 lg:text-lg"
             />
           </div>
         </div>
+        {pathname === "/signup" && (
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-md font-medium leading-6 text-gray-900"
+            >
+              Re-enter Password
+            </label>
+            <div className="mt-3">
+              <input
+                name="password"
+                type="password"
+                required
+                className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 lg:text-lg"
+              />
+            </div>
+          </div>
+        )}
+
         <div className="flex items-center justify-between">
           <div className="mt-5 text-sm leading-6">
             <a
               href="#"
               className="font-semibold text-[#B30000] hover:text-[#FF6666]"
             >
-              Forgot password?
+              {pathname === "/signup" ? "" : "Forgot password?"}
             </a>
           </div>
         </div>
@@ -55,9 +67,9 @@ export default function Form() {
         <div>
           <button
             type="submit"
-            className="flex w-full justify-center rounded-md bg-[#B30000] px-3 py-1.5 text- font-semibold leading-6 text-white shadow-sm hover:bg-[#FF6666] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="flex w-full justify-center rounded-md bg-[#B30000] px-3 py-1.5 text- font-semibold leading-6 text-white shadow-sm hover:bg-[#FF6666] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           >
-            Sign Up
+            {pathname === "/signup" ? "Sign Up" : "Log in"}
           </button>
         </div>
       </form>

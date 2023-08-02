@@ -5,7 +5,7 @@ export default function Error() {
       <main className="relative isolate h-screen overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="public/Banksy_Art/Cancelled.jpg"
+            src="/Banksy_Art/Cancelled.jpg"
             alt="You dreams have been cancelled"
             className="w-full h-full object-cover object-top"
           />

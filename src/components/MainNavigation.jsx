@@ -39,7 +39,11 @@ export default function MainNavigation() {
         <div className="flex flex-1 items-center justify-end gap-x-6">
           <NavLink
             to="signup"
-            className="hidden lg:block lg:text-lg lg:font-semibold lg:leading-6 text-[#FFFFFF] hover:text-[#808080]"
+            className={({ isActive }) =>
+              isActive
+                ? "hidden lg:block lg:text-lg lg:font-semibold lg:leading-6 text-[#B30000] font-semibold"
+                : "hidden lg:block lg:text-lg lg:font-semibold lg:leading-6 text-[#FFFFFF] hover:text-[#808080]"
+            }
           >
             Sign Up <span aria-hidden="true">&rarr;</span>
           </NavLink>

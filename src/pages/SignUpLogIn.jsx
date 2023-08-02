@@ -1,5 +1,15 @@
+import { useLocation } from "react-router-dom";
 import Form from "../components/Form";
-export default function SignUp() {
+export default function SignUpLogIn() {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const image =
+    pathname === "/signup"
+      ? "/Banksy_Art/Looking_At_CCTV.jpg"
+      : "/Banksy_Art/Profits_Over_People.jpg";
+  const alt =
+    pathname === "/signup" ? "Sign up illustration" : "Login illustration";
+
   return (
     <>
       <div className="flex min-h-full flex-1">
@@ -12,12 +22,12 @@ export default function SignUp() {
             </div>
             <div>
               <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-gray-900">
-                Sign up for an account
+                {pathname === "/signup" ? "Sign up for an account" : "Log in"}
               </h2>
             </div>
             <div className="mt-10">
               <div>
-                <Form />
+                <Form pathname={pathname} />
               </div>
               <div className="mt-11">
                 <div className="relative">
@@ -35,8 +45,8 @@ export default function SignUp() {
         <div className="relative hidden w-0 flex-1 lg:block">
           <img
             className="absolute inset-0 h-full w-full object-cover"
-            src="/Banksy_Art/Looking_At_CCTV.jpg"
-            alt=""
+            src={image}
+            alt={alt}
           />
         </div>
       </div>

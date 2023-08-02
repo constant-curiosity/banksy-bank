@@ -7,8 +7,7 @@ import ErrorPage from "./pages/Error";
 import Home from "./pages/Home";
 import Crypto from "./pages/Crypto";
 import About from "./components/About";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
+import SignUpLogIn from "./pages/SignUpLogIn";
 
 const router = createBrowserRouter([
   {
@@ -19,8 +18,8 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: "crypto", element: <Crypto /> },
       { path: "about", element: <About /> },
-      { path: "signup", element: <SignUp /> },
-      { path: "login", element: <Login /> },
+      { path: "signup", element: <SignUpLogIn /> },
+      { path: "login", element: <SignUpLogIn /> },
     ],
   },
 ]);
