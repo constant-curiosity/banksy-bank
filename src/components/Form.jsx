@@ -1,6 +1,11 @@
+import Modal from "../UI/Modal";
+import { useState } from "react";
+
 export default function Form({ pathname }) {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
+      {openModal && <Modal setOpenModal={setOpenModal} openModal={openModal} />}
       <form action="#" method="POST" className="space-y-6">
         <div>
           <label
@@ -37,14 +42,14 @@ export default function Form({ pathname }) {
         {pathname === "/signup" && (
           <div>
             <label
-              htmlFor="password"
+              htmlFor="reenter-password"
               className="block text-md font-medium leading-6 text-gray-900"
             >
               Re-enter Password
             </label>
             <div className="mt-3">
               <input
-                name="password"
+                name="reenter-password"
                 type="password"
                 required
                 className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 lg:text-lg"
@@ -55,15 +60,18 @@ export default function Form({ pathname }) {
 
         <div className="flex items-center justify-between">
           <div className="mt-5 text-sm leading-6">
-            <a
-              href="#"
+            <button
+              type="button"
+              onClick={() => setOpenModal(true)}
               className="font-semibold text-[#B30000] hover:text-[#FF6666]"
             >
               {pathname === "/signup" ? "" : "Forgot password?"}
-            </a>
+            </button>
           </div>
+          {/* {openModal && (
+            <Modal setOpenModal={setOpenModal} openModal={openModal} />
+          )} */}
         </div>
-
         <div>
           <button
             type="submit"

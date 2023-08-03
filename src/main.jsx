@@ -16,10 +16,10 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
-      { path: "crypto", element: <Crypto /> },
-      { path: "about", element: <About /> },
-      { path: "signup", element: <SignUpLogIn /> },
-      { path: "login", element: <SignUpLogIn /> },
+      { path: "/crypto", element: <Crypto /> },
+      { path: "/about", element: <About /> },
+      { path: "/signup", element: <SignUpLogIn /> },
+      { path: "/login", element: <SignUpLogIn /> },
     ],
   },
 ]);
