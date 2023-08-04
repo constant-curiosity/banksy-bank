@@ -1,3 +1,11 @@
+import { Helmet } from "react-helmet";
 export default function Crypto() {
-  return <h1>Crypto</h1>;
+  return (
+    <>
+      <Helmet>
+        <title>Crypto</title>
+      </Helmet>
+      <h1>Crypto</h1>
+    </>
+  );
 }

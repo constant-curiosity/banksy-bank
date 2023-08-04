@@ -6,7 +6,7 @@ import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/Error";
 import Home from "./pages/Home";
 import Crypto from "./pages/Crypto";
-import About from "./components/About";
+import About from "./pages/About";
 import SignUpLogIn from "./pages/SignUpLogIn";
 
 const router = createBrowserRouter([

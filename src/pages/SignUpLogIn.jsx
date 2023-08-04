@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import Form from "../components/Form";
 export default function SignUpLogIn() {
@@ -8,10 +9,16 @@ export default function SignUpLogIn() {
       ? "/Banksy_Art/Looking_At_CCTV.jpg"
       : "/Banksy_Art/Profits_Over_People.jpg";
   const alt =
-    pathname === "/signup" ? "Sign up illustration" : "Login illustration";
+    pathname === "/signup"
+      ? "Sign up, What are you looking at"
+      : "Log in, Profits over people";
+  const title = pathname === "/signup" ? "Sign Up" : "Log In";
 
   return (
     <>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
       <div className="flex min-h-full flex-1">
         <div className="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">

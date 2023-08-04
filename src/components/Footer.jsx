@@ -1,6 +1,8 @@
 import { FooterNavigation } from "../lib/NavigationLinks";
 import { NavLink } from "react-router-dom";
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-[#cccccc]">
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-10 lg:px-8">
@@ -24,10 +26,9 @@ export default function Footer() {
           ))}
         </nav>
         <p className="mt-10 text-center text-xs leading-5 text-[#333333]">
-          &copy; 2020 Make this DYNAMIC, Inc. All rights reserved.
+          &copy; {currentYear} Banksy Bank. Not Reserved.
         </p>
       </div>
     </footer>
   );
 }
-//How to make the date dynamic so it updates itself yearly.

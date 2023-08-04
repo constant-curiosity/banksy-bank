@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
 export default function Error() {
   return (
     <>
+      <Helmet>
+        <title>Error</title>
+      </Helmet>
       <main className="relative isolate h-screen overflow-hidden">
         <div className="absolute inset-0">
           <img

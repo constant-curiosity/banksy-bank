@@ -1,11 +1,16 @@
 import Modal from "../UI/Modal";
+import { createPortal } from "react-dom";
 import { useState } from "react";
 
 export default function Form({ pathname }) {
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
-      {openModal && <Modal setOpenModal={setOpenModal} openModal={openModal} />}
+      {openModal &&
+        createPortal(
+          <Modal setOpenModal={setOpenModal} openModal={openModal} />,
+          document.getElementById("modal")
+        )}
       <form action="#" method="POST" className="space-y-6">
         <div>
           <label
@@ -57,7 +62,6 @@ export default function Form({ pathname }) {
             </div>
           </div>
         )}
-
         <div className="flex items-center justify-between">
           <div className="mt-5 text-sm leading-6">
             <button
@@ -68,9 +72,6 @@ export default function Form({ pathname }) {
               {pathname === "/signup" ? "" : "Forgot password?"}
             </button>
           </div>
-          {/* {openModal && (
-            <Modal setOpenModal={setOpenModal} openModal={openModal} />
-          )} */}
         </div>
         <div>
           <button
@@ -81,6 +82,28 @@ export default function Form({ pathname }) {
           </button>
         </div>
       </form>
+
+      {pathname === "/signup" ? (
+        <div className="mt-5 ">
+          <div>
+            <p>
+              Guest credentials on Log in page, which you allow you to access
+              authorized routes, without having to sign up.
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div>
+          <hr className="my-5" />
+          <div>
+            <p>To view authorized routes, without signing up:</p>
+            <ul className="mt-5">
+              <li>User Name: guest@example.com</li>
+              <li>Password: guest123</li>
+            </ul>
+          </div>
+        </div>
+      )}
     </>
   );
 }
