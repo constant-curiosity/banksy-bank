@@ -30,7 +30,7 @@ export default function Modal({ openModal, setOpenModal }) {
             >
               <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                 <div className="mt-0 sm:mx-auto sm:w-full sm:max-w-sm">
-                  <form className="space-y-6" action="#" method="POST">
+                  {/* <form className="space-y-6" action="#" method="POST">
                     <div>
                       <label
                         htmlFor="email"
@@ -99,7 +99,7 @@ export default function Modal({ openModal, setOpenModal }) {
                         Cancel
                       </button>
                     </div>
-                  </form>
+                  </form> */}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
