@@ -19,7 +19,7 @@ export default function About() {
             </div>
             <div>
               <div className="text-base leading-7 text-gray-700 lg:max-w-lg">
-                <h1 className="mt-2 text-3xl font-Branda-yolq tracking-tight text-[#B30000] sm:text-4xl">
+                <h1 className="mt-2 text-3xl font-Branda-yolq tracking-tight text-banksyRed sm:text-4xl">
                   On a mission to empower people
                 </h1>
                 <div className="max-w-xl">

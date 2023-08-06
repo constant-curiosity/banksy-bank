@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
+
 import { useLocation } from "react-router-dom";
-import Form from "../components/Form";
+import Form from "../components/Form/Form";
 export default function SignUpLogIn() {
   const location = useLocation();
   const pathname = location.pathname;
@@ -12,11 +13,13 @@ export default function SignUpLogIn() {
     pathname === "/signup"
       ? "Sign up, What are you looking at"
       : "Log in, Profits over people";
+  //This is causing the sideEffect Error
   const title = pathname === "/signup" ? "Sign Up" : "Log In";
 
   return (
     <>
       <Helmet>
+        //This is causing the sideEffect Error
         <title>{title}</title>
       </Helmet>
       <div className="flex min-h-full flex-1">

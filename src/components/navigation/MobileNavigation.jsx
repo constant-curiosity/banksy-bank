@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { HeaderNavigation } from "../lib/NavigationLinks";
+import { HeaderNavigation } from "../../lib/NavigationLinks";
 export default function MobileNavigation({
   mobileMenuOpen,
   setMobileMenuOpen,
@@ -13,7 +13,6 @@ export default function MobileNavigation({
       open={mobileMenuOpen}
       onClose={setMobileMenuOpen}
       initialFocus
-      closeOnOutsideClick={true}
     >
       <div className="fixed inset-0 z-10" />
       <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-banksyBGHeader px-6 py-6 sm:max-w-sm">

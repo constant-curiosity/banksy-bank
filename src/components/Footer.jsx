@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#cccccc]">
+    <footer className="bg-banksyFooter">
       <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-10 lg:px-8">
         <nav
           className="flex flex-row justify-center space-x-12"
@@ -16,8 +16,8 @@ export default function Footer() {
                 to={link.href}
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#B30000] font-semibold"
-                    : "text-[#FFFFFF] hover:text-[#808080]"
+                    ? "text-banksyRed font-semibold"
+                    : "text-white hover:text-banksyGray"
                 }
               >
                 {link.name}
@@ -25,7 +25,7 @@ export default function Footer() {
             </div>
           ))}
         </nav>
-        <p className="mt-10 text-center text-xs leading-5 text-[#333333]">
+        <p className="mt-10 text-center text-xs leading-5 text-banksyBGHeader">
           &copy; {currentYear} Banksy Bank. Not Reserved.
         </p>
       </div>

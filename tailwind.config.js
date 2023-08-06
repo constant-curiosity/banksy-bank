@@ -11,6 +11,7 @@ export default {
         banksyHoverRed: "#FF6666",
         banksyBGHeader: "#333333",
         banksyGray: "#808080",
+        banksyFooter: "#CCCCCC",
       },
     },
   },
