@@ -29,7 +29,7 @@ export default function SignupForm() {
         <Button
           type={"submit"}
           className={
-            "flex w-full justify-center rounded-md bg-[#B30000] px-3 py-1.5 text- font-semibold leading-6 text-white shadow-sm hover:bg-[#FF6666] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            "flex w-full justify-center rounded-md bg-banksyRed px-3 py-1.5 text- font-semibold leading-6 text-white shadow-sm hover:bg-banksyHoverRed focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
           }
           aria-label={"Account sign up"}
           children={"Sign Up"}

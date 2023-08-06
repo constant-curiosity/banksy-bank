@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet";
-
 import { useLocation } from "react-router-dom";
 import Form from "../components/Form/Form";
+import Image from "../components/UI/Image";
 export default function SignUpLogIn() {
   const location = useLocation();
   const pathname = location.pathname;
@@ -53,8 +53,12 @@ export default function SignUpLogIn() {
           </div>
         </div>
         <div className="relative hidden w-0 flex-1 lg:block">
-          <img
-            className="absolute inset-0 h-full w-full object-cover"
+          <Image
+            //Code the makes images responsive
+            className={
+              "h-full min-h-screen w-full min-w-screen aspect-w-16 aspect-h-9"
+              // "absolute inset-0 h-full w-full object-cover brightness-125 saturate-0"
+            }
             src={image}
             alt={alt}
           />

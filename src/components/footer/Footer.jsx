@@ -1,4 +1,4 @@
-import { FooterNavigation } from "../lib/NavigationLinks";
+import { FooterNavigation } from "../../lib/NavigationLinks";
 import { NavLink } from "react-router-dom";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -26,7 +26,7 @@ export default function Footer() {
           ))}
         </nav>
         <p className="mt-10 text-center text-xs leading-5 text-banksyBGHeader">
-          &copy; {currentYear} Banksy Bank. Not Reserved.
+          &copy; {currentYear} Banksy ₿ank
         </p>
       </div>
     </footer>

@@ -1,3 +1,4 @@
+import Image from "../components/UI/Image";
 import { Helmet } from "react-helmet";
 export default function About() {
   return (
@@ -10,7 +11,7 @@ export default function About() {
           <div className="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-8 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:pr-4">
               <div className="relative h-[40rem] w-full overflow-hidden rounded-3xl bg-gray-900 px-6 pb-9 pt-64 shadow-2xl sm:px-12 lg:max-w-lg lg:px-8 lg:pb-8 xl:px-10 xl:pb-10">
-                <img
+                <Image
                   className="absolute inset-0 h-full w-full object-cover brightness-125 saturate-0"
                   src="/Banksy_Art/No_Permission.jpg"
                   alt="Do not ask permission"

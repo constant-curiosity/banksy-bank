@@ -10,3 +10,7 @@ export default function Crypto() {
     </>
   );
 }
+
+export function loader() {
+  console.log("loading...");
+}

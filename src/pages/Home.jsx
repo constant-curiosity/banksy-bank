@@ -1,3 +1,4 @@
+import Image from "../components/UI/Image";
 import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 export default function Home() {
@@ -26,7 +27,7 @@ export default function Home() {
               <div className="mt-10 flex">
                 <NavLink
                   to="signup"
-                  className="rounded-md bg-[#B30000] px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-[#FF6666] "
+                  className="rounded-md bg-banksyRed px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
                 >
                   Sign Up <span aria-hidden="true">&rarr;</span>
                 </NavLink>
@@ -42,24 +43,31 @@ export default function Home() {
               </div>
               <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
                 <div className="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
-                  <img
-                    src="/Banksy_Art/LifeStyle_2.webp"
-                    alt="Sorry your order for your new life is out of stock"
-                    className="aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                  <Image
+                    src={"/Banksy_Art/LifeStyle_2.webp"}
+                    alt={"Sorry your order for your new life is out of stock"}
+                    className={
+                      "aspect-[4/3] w-[24rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                    }
                   />
                 </div>
                 <div className="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
-                  <img
-                    src="/Banksy_Art/10_Pound_Note.jpg"
-                    alt="Banksy of England ten pound note"
-                    className="aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                  <Image
+                    src={"/Banksy_Art/10_Pound_Note.jpg"}
+                    alt={"Banksy of England ten pound note"}
+                    className={
+                      "aspect-[7/5] w-[37rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                    }
                   />
                 </div>
                 <div className="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
-                  <img
-                    src="/Banksy_Art/Love_Over_Money.jpg"
-                    alt="Man pointing to love over money"
-                    className="aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+                  {" "}
+                  <Image
+                    src={"/Banksy_Art/Love_Over_Money.jpg"}
+                    alt={"Man pointing to love over money"}
+                    className={
+                      "aspect-[4/3] w-[24rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+                    }
                   />
                 </div>
               </div>
