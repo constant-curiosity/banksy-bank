@@ -5,7 +5,7 @@ import "./index.css";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/Error";
 import Home from "./pages/Home";
-import Crypto, { loader as cryptoLoader } from "./pages/Crypto";
+import Crypto from "./pages/Crypto";
 import About from "./pages/About";
 import SignUpLogIn from "./pages/SignUpLogIn";
 
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
-      { path: "/crypto", element: <Crypto />, loader: cryptoLoader },
+      { path: "/crypto", element: <Crypto /> },
       { path: "/about", element: <About /> },
       { path: "/signup", element: <SignUpLogIn /> },
       { path: "/login", element: <SignUpLogIn /> },
