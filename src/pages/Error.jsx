@@ -1,7 +1,9 @@
 import { Helmet } from "react-helmet";
-import { NavLink } from "react-router-dom";
+import { NavLink, useRouteError } from "react-router-dom";
 import Image from "../components/UI/Image";
 export default function Error() {
+  // const error = useRouteError();
+  // console.log(error.status);
   return (
     <>
       <Helmet>
