@@ -4,9 +4,6 @@ import { Helmet } from "react-helmet";
 export default function Crypto() {
   const data = useLoaderData();
   console.log(data.data.coin.sparkline);
-  const env = JSON.stringify(import.meta.env.VITE_CRYPTO_API_KEY);
-  console.log(env);
-
   return (
     <>
       <Helmet>
@@ -41,8 +38,3 @@ export async function loader() {
     return res;
   }
 }
-
-// const data = await res.json();
-// const sparkLine = data.data.coin.sparkline;
-// return sparkLine;
-// const data = await res.json();
