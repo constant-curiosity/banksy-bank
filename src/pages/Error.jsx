@@ -2,15 +2,16 @@ import { Helmet } from "react-helmet";
 import { NavLink, useRouteError } from "react-router-dom";
 import Image from "../components/UI/Image";
 export default function Error() {
-  // const error = useRouteError();
-  // console.log(error.status);
+  const errorDetails = useRouteError();
+  const status = errorDetails.status || 404;
+  const message = errorDetails.data.message || "Oops! Page not found!";
+
   return (
     <>
       <Helmet>
         <title>Error</title>
       </Helmet>
       <main className="relative isolate h-screen overflow-hidden">
-        {/* <figure className="absolute inset-0"> */}
         <figure className="aspect-w-16 aspect-h-9">
           <Image
             src={"/Banksy_Art/Cancelled.jpg"}
@@ -24,13 +25,10 @@ export default function Error() {
           </figcaption>
         </figure>
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
-          <p className="text-2xl font-semibold leading-8">404</p>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
-            Page not found
+          <p className="text-4xl font-semibold leading-8">{status}</p>
+          <h1 className="mt-4 text-2xl font-bold tracking-tight sm:text-5xl">
+            {message}
           </h1>
-          <p className="mt-4 text-base sm:mt-6">
-            Sorry, we couldn’t find the page you’re looking for.
-          </p>
           <div className="mt-10 flex justify-center">
             <NavLink
               to=".."
