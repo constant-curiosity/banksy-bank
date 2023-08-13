@@ -34,9 +34,9 @@ const utcArr = [
 
 export default function Crypto() {
   const data = useLoaderData();
+  console.log(data);
   const iconUrl = data.data.coin.iconUrl;
   const moneroLinks = data.data.coin.links;
-  console.log(moneroLinks);
   const Hr24XmrValue = data.data.coin.sparkline;
   const cryptoPrice = utcArr.map((time, i) => {
     return {
@@ -56,6 +56,7 @@ export default function Crypto() {
             <Text>Monero XMR</Text>
             <Flex>
               <Metric>Daily</Metric>
+
               <Image className={"h-6 w-6"} src={iconUrl} alt={"Monero Icon"} />
             </Flex>
             <Line_Chart
@@ -71,13 +72,15 @@ export default function Crypto() {
           </Card>
           <Card className="mt-5">
             <Text>Links:</Text>
-            <Flex>
+            <Flex className="flex flex-wrap">
               {moneroLinks.map((link) => (
                 <CryptoLinks
                   key={link.name}
                   name={link.name}
-                  type={link.type}
-                  url={link.url}
+                  link={link.url}
+                  target={"_blank"}
+                  className={"mt-2 pr-4"}
+                  color={["orange"]}
                 />
               ))}
             </Flex>

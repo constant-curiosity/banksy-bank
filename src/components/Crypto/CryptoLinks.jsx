@@ -1,9 +1,12 @@
-import { Flex } from "@tremor/react";
+import { Subtitle } from "@tremor/react";
+import { Link } from "react-router-dom";
 
-export default function CryptoLinks({ name, type, url }) {
+export default function CryptoLinks({ name, link, target, className, color }) {
   return (
-    <div className="pr-5 sm:flex sm:flex-col">
-      <div className="mb-2 sm:mb-0">{name}</div>
-    </div>
+    <Link className={className} to={link} target={target}>
+      <div>
+        <Subtitle color={color}>{name}</Subtitle>
+      </div>
+    </Link>
   );
 }
