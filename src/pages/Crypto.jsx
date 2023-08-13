@@ -1,140 +1,50 @@
-import { useLoaderData, json } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import XmrData from "../components/chart/XmrData";
+import { useLoaderData, json } from "react-router-dom";
+import { Card, Text, Metric, Flex } from "@tremor/react";
+import Line_Chart, { valueFormatter } from "../components/UI/Line_Chart";
+import CryptoLinks from "../components/Crypto/CryptoLinks";
+import Image from "../components/UI/Image";
 
-// const sales = [
-//   {
-//     Time: "0",
-//     Sales: 1000,
-//   },
-//   {
-//     Time: "1",
-//     Sales: 4000,
-//   },
-//   {
-//     Time: "2",
-//     Sales: 50000,
-//   },
-//   {
-//     Time: "3",
-//     Sales: 9000,
-//   },
-//   {
-//     Time: "4",
-//     Sales: 1000,
-//   },
-//   {
-//     Time: "5",
-//     Sales: 4000,
-//   },
-//   {
-//     Time: "6",
-//     Sales: 50000,
-//   },
-//   {
-//     Time: "7",
-//     Sales: 9000,
-//   },
-//   {
-//     Time: "8",
-//     Sales: 1000,
-//   },
-//   {
-//     Time: "9",
-//     Sales: 4000,
-//   },
-//   {
-//     Time: "10",
-//     Sales: 50000,
-//   },
-//   {
-//     Time: "11",
-//     Sales: 9000,
-//   },
-//   {
-//     Time: "12",
-//     Sales: 1000,
-//   },
-//   {
-//     Time: "13",
-//     Sales: 4000,
-//   },
-//   {
-//     Time: "14",
-//     Sales: 50000,
-//   },
-//   {
-//     Time: "15",
-//     Sales: 9000,
-//   },
-//   {
-//     Time: "16",
-//     Sales: 1000,
-//   },
-//   {
-//     Time: "17",
-//     Sales: 4000,
-//   },
-//   {
-//     Time: "18",
-//     Sales: 50000,
-//   },
-//   {
-//     Time: "19",
-//     Sales: 9000,
-//   },
-//   {
-//     Time: "20",
-//     Sales: 1000,
-//   },
-//   {
-//     Time: "21",
-//     Sales: 4000,
-//   },
-//   {
-//     Time: "22",
-//     Sales: 50000,
-//   },
-//   {
-//     Time: "23",
-//     Sales: 9000,
-//   },
-// ];
-const sales = [
-  {
-    year: 1970,
-    "Export Growth Rate": 2.04,
-    "Import Growth Rate": 1.53,
-  },
-  {
-    year: 1971,
-    "Export Growth Rate": 1.96,
-    "Import Growth Rate": 1.58,
-  },
-  {
-    year: 1972,
-    "Export Growth Rate": 1.96,
-    "Import Growth Rate": 1.61,
-  },
-  {
-    year: 1973,
-    "Export Growth Rate": 1.93,
-    "Import Growth Rate": 1.61,
-  },
-  {
-    year: 1974,
-    "Export Growth Rate": 1.88,
-    "Import Growth Rate": 1.67,
-  },
+const utcArr = [
+  "00:00",
+  "01:00",
+  "02:00",
+  "03:00",
+  "04:00",
+  "05:00",
+  "06:00",
+  "07:00",
+  "08:00",
+  "09:00",
+  "10:00",
+  "11:00",
+  "12:00",
+  "13:00",
+  "14:00",
+  "15:00",
+  "16:00",
+  "17:00",
+  "18:00",
+  "19:00",
+  "20:00",
+  "21:00",
+  "22:00",
+  "23:00 UTC",
 ];
-
-// const dataFormatter = (number) =>
-//   `${Intl.NumberFormat("us").format(number).toString()}%`;
 
 export default function Crypto() {
   const data = useLoaderData();
-  const dayXMRValue = data.data.coin.sparkline;
-  // console.log(dayXMRValue);
+  const iconUrl = data.data.coin.iconUrl;
+  const moneroLinks = data.data.coin.links;
+  console.log(moneroLinks);
+  const Hr24XmrValue = data.data.coin.sparkline;
+  const cryptoPrice = utcArr.map((time, i) => {
+    return {
+      time,
+      price: Hr24XmrValue[i],
+    };
+  });
+
   return (
     <>
       <Helmet>
@@ -142,9 +52,36 @@ export default function Crypto() {
       </Helmet>
       <div className="flex justify-center">
         <div className="border-2 border-gray-500 my-4 mx-4 relative h-[40rem] w-full overflow-hidden rounded-3xl sm:px-12 lg:max-w-[60rem] ">
-          {/* <XmxData data={dayXMRValue} /> */}
-          <XmrData sales={sales} />
-          {/* dataFormatter={dataFormatter} */}
+          <Card className="mt-10">
+            <Text>Monero XMR</Text>
+            <Flex>
+              <Metric>Daily</Metric>
+              <Image className={"h-6 w-6"} src={iconUrl} alt={"Monero Icon"} />
+            </Flex>
+            <Line_Chart
+              data={cryptoPrice}
+              index={"time"}
+              categories={["price"]}
+              colors={["orange"]}
+              valueFormatter={valueFormatter}
+              yAxisWidth={50}
+              className={"mt-6"}
+              minValue={155}
+            />
+          </Card>
+          <Card className="mt-5">
+            <Text>Links:</Text>
+            <Flex>
+              {moneroLinks.map((link) => (
+                <CryptoLinks
+                  key={link.name}
+                  name={link.name}
+                  type={link.type}
+                  url={link.url}
+                />
+              ))}
+            </Flex>
+          </Card>
         </div>
       </div>
     </>

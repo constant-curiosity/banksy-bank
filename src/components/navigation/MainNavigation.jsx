@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import MobileNavigation from "./MobileNavigation";
-import { HeaderNavigation } from "../../lib/NavigationLinks";
+import { HeaderNavigation } from "../config/NavigationLinks";
 
 export default function MainNavigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

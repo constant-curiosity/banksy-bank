@@ -1,4 +1,4 @@
-import { FooterNavigation } from "../../lib/NavigationLinks";
+import { FooterNavigation } from "../config/NavigationLinks";
 import { NavLink } from "react-router-dom";
 export default function Footer() {
   const currentYear = new Date().getFullYear();

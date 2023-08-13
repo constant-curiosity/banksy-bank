@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Dialog } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { HeaderNavigation } from "../../lib/NavigationLinks";
+import { HeaderNavigation } from "../config/NavigationLinks";
 export default function MobileNavigation({
   mobileMenuOpen,
   setMobileMenuOpen,
