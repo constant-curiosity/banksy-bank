@@ -8,6 +8,7 @@ export default function InputField({
   ariaLabel,
   ariaDescribedBy,
   required,
+  id,
 }) {
   return (
     <div>
@@ -26,6 +27,7 @@ export default function InputField({
           aria-label={ariaLabel}
           aria-describedby={ariaDescribedBy}
           required={required}
+          id={id}
           className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 lg:text-lg"
         />
       </div>
