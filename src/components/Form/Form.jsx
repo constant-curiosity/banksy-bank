@@ -25,7 +25,7 @@ export default function Form({ pathname }) {
             ariaLabel={"Password reset modal"}
             ariaDescribedBy={"Modal used to reset the users password"}
             content={
-              <form className="space-y-6" action="#" method="POST">
+              <form className="space-y-6" action="RestPwd" method="POST">
                 <InputField
                   label={"Email address"}
                   htmlForLabel={"email"}
@@ -36,6 +36,7 @@ export default function Form({ pathname }) {
                   name={"email"}
                   aria-label={"Email Field"}
                   aria-describedby={"Email Input Reset Password"}
+                  required
                 />
                 <InputField
                   label={"New Password"}
@@ -82,13 +83,12 @@ export default function Form({ pathname }) {
           />,
           document.getElementById("modal")
         )}
-      <form action="#" method="POST" className="space-y-6">
-        {pathname === "/login" ? (
-          <LoginForm onModalClickHandler={onModalClickHandler} />
-        ) : (
-          <SignupForm />
-        )}
-      </form>
+
+      {pathname === "/login" ? (
+        <LoginForm onModalClickHandler={onModalClickHandler} />
+      ) : (
+        <SignupForm />
+      )}
 
       {pathname === "/signup" ? (
         <SignupMessage
