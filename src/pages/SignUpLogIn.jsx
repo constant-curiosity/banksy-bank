@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
-import Form from "../components/Form/Form";
+import Form from "../components/form/Form";
 import Image from "../components/UI/Image";
 export default function SignUpLogIn() {
   const location = useLocation();

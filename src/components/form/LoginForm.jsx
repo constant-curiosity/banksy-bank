@@ -3,7 +3,12 @@ import Button from "../UI/Button";
 export default function LoginForm({ onModalClickHandler }) {
   return (
     <>
-      <form className="space-y-6" action="loginForm" method="POST">
+      <form
+        onClick={() => alert("Login_Submit")}
+        className="space-y-6"
+        action="loginForm"
+        method="POST"
+      >
         <InputField
           label={"Email"}
           htmlFor={"email"}
