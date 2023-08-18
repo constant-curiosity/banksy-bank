@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import { useLoaderData, json } from "react-router-dom";
 import { Card, Text, Metric, Flex } from "@tremor/react";
 import Line_Chart, { valueFormatter } from "../components/UI/Line_Chart";
-import CryptoLinks from "../components/Crypto/CryptoLinks";
+import CryptoLinks from "../components/crypto/CryptoLinks";
 import Image from "../components/UI/Image";
 
 const utcArr = [

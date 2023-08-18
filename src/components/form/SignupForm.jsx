@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { DevTool } from "@hookform/devtools";
-import { Form } from "react-router-dom";
 import Button from "../UI/Button";
 import InputField from "../UI/InputField";
-import { emailValidation, passwordValidation } from "./formValidation";
+import { emailValidation, passwordValidation } from "./FormValidation";
+import { handleFormSubmit } from "../api/SignupAPI";
 export default function SignupForm() {
   const form = useForm();
   const {
@@ -16,15 +16,14 @@ export default function SignupForm() {
 
   const password = watch("password");
   const reEnterPassword = watch("reEnterPassword");
-  console.log(isValid);
 
-  const onSubmit = (data) => console.log(data);
   return (
     <>
-      <Form
-        onSubmit={handleSubmit(onSubmit)}
+      //Do not forget this is react router and we need to write an action to
+      this when we submit the form.
+      <form
+        onSubmit={handleSubmit(handleFormSubmit)}
         className="space-y-2"
-        action="SignUpForm"
         method="POST"
       >
         <InputField
@@ -36,9 +35,12 @@ export default function SignupForm() {
             ...register("email", emailValidation),
           }}
         />
-        <span className={"text-banksyRed"} role="alert" aria-invalid="true">
-          {errors.email?.message}
-        </span>
+        {errors.email && (
+          <span className={"text-banksyRed"} role="alert" aria-invalid="true">
+            {errors.email?.message}
+          </span>
+        )}
+
         <InputField
           type={"text"}
           label={"Password"}
@@ -78,7 +80,7 @@ export default function SignupForm() {
             children={"Sign Up"}
           />
         </div>
-      </Form>
+      </form>
       <DevTool control={control} />
     </>
   );
