@@ -4,25 +4,25 @@ import Button from "../UI/Button";
 import InputField from "../UI/InputField";
 import { emailValidation, passwordValidation } from "./FormValidation";
 import { handleFormSubmit } from "../api/SignupAPI";
+
 export default function SignupForm() {
   const form = useForm();
   const {
     register,
     control,
     handleSubmit,
-    watch,
     formState: { errors, isValid },
   } = form;
 
-  const password = watch("password");
-  const reEnterPassword = watch("reEnterPassword");
+  const onSubmit = async (data) => {
+    await handleFormSubmit(data);
+    form.reset();
+  };
 
   return (
     <>
-      //Do not forget this is react router and we need to write an action to
-      this when we submit the form.
       <form
-        onSubmit={handleSubmit(handleFormSubmit)}
+        onSubmit={handleSubmit(onSubmit)}
         className="space-y-2"
         method="POST"
       >
@@ -62,11 +62,17 @@ export default function SignupForm() {
           label={"Re-enter Password"}
           htmlFor={"reEnterPassword"}
           aria-label={"Re-enter your password"}
-          register={{ ...register("reEnterPassword", { required: true }) }}
+          register={{
+            ...register("reEnterPassword", {
+              required: true,
+              validate: (value) =>
+                value === form.watch("password") || "Passwords do not match",
+            }),
+          }}
         />
-        {reEnterPassword !== password && (
+        {errors.reEnterPassword && (
           <span className={"text-banksyRed"} role="alert" aria-invalid="true">
-            Passwords do not match
+            {errors.reEnterPassword?.message}
           </span>
         )}
         <div>
@@ -84,4 +90,14 @@ export default function SignupForm() {
       <DevTool control={control} />
     </>
   );
+}
+
+{
+  /* <InputField
+type={"text"}
+label={"Re-enter Password"}
+htmlFor={"reEnterPassword"}
+aria-label={"Re-enter your password"}
+register={{ ...register("reEnterPassword", { required: true }) }}
+/> */
 }
