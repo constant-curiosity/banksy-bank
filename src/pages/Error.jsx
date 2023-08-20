@@ -5,7 +5,8 @@ export default function Error() {
   const errorDetails = useRouteError();
   const status = errorDetails.status || 404;
   const message = errorDetails.data.message || "Oops! Page not found!";
-
+  const redirectMessage = errorDetails.data.redirectMessage || "Back to home";
+  const link = errorDetails.data.link || "..";
   return (
     <>
       <Helmet>
@@ -31,10 +32,10 @@ export default function Error() {
           </h1>
           <div className="mt-10 flex justify-center">
             <NavLink
-              to=".."
+              to={link}
               className="text-lg hover:text-banksyRed font-semibold leading-7"
             >
-              <span aria-hidden="true">&larr;</span> Back to home
+              <span aria-hidden="true">&larr;</span> {redirectMessage}
             </NavLink>
           </div>
         </div>

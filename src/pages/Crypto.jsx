@@ -34,7 +34,6 @@ const utcArr = [
 
 export default function Crypto() {
   const data = useLoaderData();
-  console.log(data);
   const iconUrl = data.data.coin.iconUrl;
   const moneroLinks = data.data.coin.links;
   const Hr24XmrValue = data.data.coin.sparkline;
@@ -104,7 +103,11 @@ export async function loader() {
   );
   if (!res.ok) {
     throw json(
-      { message: "Could not load crypto data." },
+      {
+        message: "Could not load crypto data.",
+        redirectMessage: "",
+        link: "",
+      },
       { status: res.status }
     );
   } else {

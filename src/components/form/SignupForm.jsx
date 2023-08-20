@@ -14,15 +14,10 @@ export default function SignupForm() {
     formState: { errors, isValid },
   } = form;
 
-  const onSubmit = async (data) => {
-    await handleFormSubmit(data);
-    form.reset();
-  };
-
   return (
     <>
       <form
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={handleSubmit(handleFormSubmit)}
         className="space-y-2"
         method="POST"
       >
@@ -90,14 +85,4 @@ export default function SignupForm() {
       <DevTool control={control} />
     </>
   );
-}
-
-{
-  /* <InputField
-type={"text"}
-label={"Re-enter Password"}
-htmlFor={"reEnterPassword"}
-aria-label={"Re-enter your password"}
-register={{ ...register("reEnterPassword", { required: true }) }}
-/> */
 }
