@@ -1,4 +1,5 @@
-import { json, redirect } from "react-router-dom";
+import { json } from "react-router-dom";
+
 export async function handleFormSubmit(data) {
   try {
     const url = import.meta.env.VITE_POSTMAN_SIGNUP_API_KEY;
@@ -10,7 +11,6 @@ export async function handleFormSubmit(data) {
       },
       body: JSON.stringify(data),
     });
-
     if (!res.ok) {
       throw json(
         {
@@ -21,9 +21,10 @@ export async function handleFormSubmit(data) {
         { status: res.status }
       );
     } else {
-      return redirect("/login");
+      return;
     }
   } catch (error) {
+    //Research Winston for better error logging
     console.error("Sign up request failed:", error.message);
   }
 }
