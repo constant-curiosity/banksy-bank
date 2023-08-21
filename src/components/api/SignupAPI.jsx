@@ -4,7 +4,7 @@ export async function handleFormSubmit(data) {
   try {
     const url = import.meta.env.VITE_POSTMAN_SIGNUP_API_KEY;
 
-    const res = await fetch(url, {
+    const res = await fetch("/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
