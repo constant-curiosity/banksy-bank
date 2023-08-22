@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { DevTool } from "@hookform/devtools";
+// import { DevTool } from "@hookform/devtools";
 import Button from "../UI/Button";
 import InputField from "../UI/InputField";
 import LoadingCard from "../UI/LoadingCard";
@@ -112,7 +112,7 @@ export default function SignupForm() {
           </div>
         </form>
       )}
-      <DevTool control={control} />
+      {/* <DevTool control={control} /> */}
     </>
   );
 }
