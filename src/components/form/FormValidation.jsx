@@ -31,3 +31,10 @@ export const passwordValidation = {
       value.length >= 8 || "Password must be at least 8 characters long",
   },
 };
+
+export const comparePwds = {
+  validate: {
+    matchingPasswords: (value) =>
+      value === form.watch("password") || "Passwords do not match",
+  },
+};
