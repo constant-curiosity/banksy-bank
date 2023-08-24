@@ -16,7 +16,7 @@ export default function SignupForm() {
   const form = useForm();
   const {
     register,
-    control,
+    // control,
     handleSubmit,
     formState: { errors, isValid },
   } = form;
