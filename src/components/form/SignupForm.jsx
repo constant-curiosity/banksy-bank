@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
+  console.log([1, 2, 3]);
 
   const form = useForm();
   const {
