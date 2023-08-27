@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Crypto, { loader as cryptoLoader } from "./pages/Crypto";
 import About from "./pages/About";
 import SignUpLogIn from "./pages/SignUpLogIn";
+import FormErrorPage from "./pages/FormErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -16,10 +17,12 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
+      { path: "/error", element: <ErrorPage /> },
       { path: "/crypto", element: <Crypto />, loader: cryptoLoader },
       { path: "/about", element: <About /> },
       { path: "/signup", element: <SignUpLogIn /> },
       { path: "/login", element: <SignUpLogIn /> },
+      { path: "/Signup-Login-Error", element: <FormErrorPage /> },
     ],
   },
 ]);

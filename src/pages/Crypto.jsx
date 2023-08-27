@@ -105,8 +105,7 @@ export async function loader() {
     throw json(
       {
         message: "Could not load crypto data.",
-        redirectMessage: "",
-        link: "",
+        redirectMessage: "Back to home.",
       },
       { status: res.status }
     );

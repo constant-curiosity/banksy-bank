@@ -6,14 +6,13 @@ import InputField from "../UI/InputField";
 import LoadingCard from "../UI/LoadingCard";
 import Image from "../UI/Image";
 import { emailValidation, passwordValidation } from "./FormValidation";
-import { handleFormSubmit } from "../api/SignupAPI";
 import { useNavigate } from "react-router-dom";
+import { signup } from "../api/SignupAPI";
 
 export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
-  console.log([1, 2, 3]);
 
+  const navigate = useNavigate();
   const form = useForm();
   const {
     register,
@@ -22,17 +21,36 @@ export default function SignupForm() {
     formState: { errors, isValid },
   } = form;
 
-  const onSubmit = async (data) => {
+  // const handleFormSubmit = async (data) => {
+  //   try {
+  //     setIsSubmitting(true);
+  //     const res = await fetch("/api/signup", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(data),
+  //     });
+  //     if (!res.ok) {
+  //       navigate("/Signup-Login-Error");
+  //     } else {
+  //       navigate("/login");
+  //     }
+  //   } catch (error) {
+  //     setIsSubmitting(false);
+  //     console.log("Sign up failed on submission:", error.message);
+  //   }
+  // };
+
+  const handleFormSubmit = async (data) => {
     try {
       setIsSubmitting(true);
-      await handleFormSubmit(data);
-      navigate("/login");
+      await signup(data, navigate); // Use the signup API function
     } catch (error) {
       setIsSubmitting(false);
-      //Research Winston for better error logging
-      console.log("Sign up failed on submission:", error.message);
     }
   };
+
   return (
     <>
       {isSubmitting === true ? (
@@ -47,7 +65,7 @@ export default function SignupForm() {
         />
       ) : (
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit(handleFormSubmit)}
           className="space-y-2"
           method="POST"
         >

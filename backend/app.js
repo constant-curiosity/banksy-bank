@@ -1,27 +1,33 @@
 "Use Strict";
-const express = require("express");
-const cors = require("cors");
 
+const express = require("express");
 const app = express();
-const port = 3000;
+const cors = require("cors");
+const pool = require("./database/db");
+require("dotenv").config();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-// API route example
-app.post("/api/signup", (req, res) => {
+app.post("/api/signup", async (req, res) => {
   const userData = req.body;
-  console.log(userData);
-  res.status(201).send("Works");
+  console.log(userData, "node_server");
+  try {
+    const query = "INSERT INTO Users (email, password) VALUES ($1, $2)";
+    await pool.query(query, [userData.email, userData.password]);
+    res.status(201).send("User created successfully.");
+  } catch (error) {
+    console.error(error);
+    console.error("Error creating user:", error);
+    res.status(400).json({
+      message: "An error occurred while creating the user.",
+      error: error.message, // Include the error message from the caught error
+    });
+  }
 });
 
-app.use((err, req, res, next) => {
-  // Handle errors
-  console.error(err.stack);
-  res.status(500).send("Something went wrong!");
-});
-
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
