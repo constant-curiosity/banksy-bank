@@ -1,18 +1,18 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { signup } from "../api/SignupAPI";
+import { emailValidation, passwordValidation } from "./FormValidation";
 // import { DevTool } from "@hookform/devtools";
 import Button from "../UI/Button";
 import InputField from "../UI/InputField";
 import LoadingCard from "../UI/LoadingCard";
 import Image from "../UI/Image";
-import { emailValidation, passwordValidation } from "./FormValidation";
-import { useNavigate } from "react-router-dom";
-import { signup } from "../api/SignupAPI";
 
 export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const navigate = useNavigate();
+
   const form = useForm();
   const {
     register,
@@ -20,27 +20,6 @@ export default function SignupForm() {
     handleSubmit,
     formState: { errors, isValid },
   } = form;
-
-  // const handleFormSubmit = async (data) => {
-  //   try {
-  //     setIsSubmitting(true);
-  //     const res = await fetch("/api/signup", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(data),
-  //     });
-  //     if (!res.ok) {
-  //       navigate("/Signup-Login-Error");
-  //     } else {
-  //       navigate("/login");
-  //     }
-  //   } catch (error) {
-  //     setIsSubmitting(false);
-  //     console.log("Sign up failed on submission:", error.message);
-  //   }
-  // };
 
   const handleFormSubmit = async (data) => {
     try {

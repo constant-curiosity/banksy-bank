@@ -14,7 +14,6 @@ export const emailValidation = {
 };
 
 export const passwordValidation = {
-  //This needs to be cleaned up to give a better user experience
   validate: {
     specialCharacter: (value) =>
       /[^A-Za-z0-9]/.test(value) ||

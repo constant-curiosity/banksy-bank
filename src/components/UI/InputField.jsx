@@ -28,7 +28,6 @@ export default function InputField({
           aria-describedby={ariaDescribedBy}
           required={required}
           {...register}
-          // {...register(label, { required })}
           className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 lg:text-lg"
         />
       </div>
