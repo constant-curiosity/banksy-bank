@@ -16,4 +16,4 @@ Bansky Bank is an ongoing project under active development. Daily work is being 
 The purpose of re-creating Bansky Bank with modern technologies is to showcase the transformation and capabilities of the latest tools in the development landscape. By rebuilding an existing app, we can demonstrate how improvements in technology can result in a more efficient, secure, and user-friendly banking experience.
 
 ### **Contact**
-If you have any questions, feedback, or would like to collaborate, feel free to reach out to us at [contact@banskybank.com](mailto:contact@banskybank.com).
+If you have any questions, feedback, or would like to collaborate, feel free to reach out to us at contact@duckandtiger.dev.
