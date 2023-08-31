@@ -1,4 +1,4 @@
-export async function signup(data, navigate) {
+export default async function Signup(data, navigate) {
   try {
     const res = await fetch("/api/signup", {
       method: "POST",
