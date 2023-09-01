@@ -7,7 +7,7 @@ import Button from "../UI/Button";
 import InputField from "../UI/InputField";
 import LoadingCard from "../UI/LoadingCard";
 import Image from "../UI/Image";
-import { signUpSchema } from "../../schema/SignUpSchema";
+import { signUpSchema } from "../../../schema/SignUpSchema";
 
 export default function SignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
