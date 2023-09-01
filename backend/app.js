@@ -5,13 +5,13 @@ const app = express();
 const cors = require("cors");
 const pool = require("./database/db");
 require("dotenv").config();
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
 app.post("/api/signup", async (req, res) => {
   const userData = req.body;
+
   console.log(userData, "node_server");
   try {
     const query = "INSERT INTO Users (email, password) VALUES ($1, $2)";
