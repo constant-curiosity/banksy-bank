@@ -7,7 +7,6 @@ export default async function Signup(data, navigate) {
       },
       body: JSON.stringify(data),
     });
-
     if (!res.ok) {
       navigate("/Signup-Login-Error");
       return;
