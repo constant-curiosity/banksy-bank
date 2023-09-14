@@ -45,13 +45,13 @@ export default function MainNavigation() {
           >
             Sign Up <span aria-hidden="true">&rarr;</span>
           </NavLink>
-          //Use this outline for a login button.
-          {/* <NavLink
+
+          <NavLink
             to="login"
             className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
           >
-            Log in
-          </NavLink> */}
+            auth0
+          </NavLink>
           <NavLink
             to="login"
             className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
