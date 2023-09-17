@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { NavLink } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { HeaderNavigation } from "../config/NavigationLinks";
 import MobileNavigation from "./MobileNavigation";
+import LoginButton from "../../auth0/LoginButton";
+import SignUpButton from "../../auth0/SignUpButton";
+import LogoutButton from "../../auth0/LogOutButton";
 
 export default function MainNavigation() {
+  const { isAuthenticated } = useAuth0();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -46,18 +51,26 @@ export default function MainNavigation() {
             Sign Up <span aria-hidden="true">&rarr;</span>
           </NavLink>
 
-          <NavLink
+          {!isAuthenticated && (
+            <>
+              <SignUpButton />
+              <LoginButton />
+            </>
+          )}
+          {isAuthenticated && <LogoutButton />}
+
+          {/* <NavLink
             to="login"
             className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
           >
-            auth0
-          </NavLink>
-          <NavLink
+            Sign Up
+          </NavLink> */}
+          {/* <NavLink
             to="login"
             className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
           >
             Log in
-          </NavLink>
+          </NavLink> */}
         </div>
         <div className="flex lg:hidden">
           <button

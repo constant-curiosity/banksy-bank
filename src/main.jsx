@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Auth0ProviderWithNavigate } from "./auth0/Auth0_Provider";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
@@ -14,7 +15,11 @@ import Call_Back from "./pages/Call_Back";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: (
+      <Auth0ProviderWithNavigate>
+        <RootLayout />
+      </Auth0ProviderWithNavigate>
+    ),
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <Home /> },
@@ -26,7 +31,10 @@ const router = createBrowserRouter([
       { path: "/Signup-Login-Error", element: <FormErrorPage /> },
     ],
   },
-  { path: "/callback", element: <Call_Back /> },
+  {
+    path: "/callback",
+    element: <Call_Back />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -34,3 +42,21 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
+
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <RootLayout />,
+//     errorElement: <ErrorPage />,
+//     children: [
+//       { index: true, element: <Home /> },
+//       { path: "/error", element: <ErrorPage /> },
+//       { path: "/crypto", element: <Crypto />, loader: cryptoLoader },
+//       { path: "/about", element: <About /> },
+//       { path: "/signup", element: <SignUpLogIn /> },
+//       { path: "/login", element: <SignUpLogIn /> },
+//       { path: "/Signup-Login-Error", element: <FormErrorPage /> },
+//     ],
+//   },
+//   { path: "/callback", element: <Call_Back /> },
+// ]);
