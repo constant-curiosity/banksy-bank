@@ -33,7 +33,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/callback",
-    element: <Call_Back />,
+    element: (
+      <Auth0ProviderWithNavigate>
+        <Call_Back />
+      </Auth0ProviderWithNavigate>
+    ),
   },
 ]);
 

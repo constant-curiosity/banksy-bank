@@ -10,6 +10,7 @@ import LogoutButton from "../../auth0/LogOutButton";
 
 export default function MainNavigation() {
   const { isAuthenticated } = useAuth0();
+  console.log(isAuthenticated);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -40,17 +41,6 @@ export default function MainNavigation() {
           ))}
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          <NavLink
-            to="signup"
-            className={({ isActive }) =>
-              isActive
-                ? "hidden lg:block lg:text-banksyRed lg:font-semibold"
-                : "hidden md:block text-white hover:text-banksyGray"
-            }
-          >
-            Sign Up <span aria-hidden="true">&rarr;</span>
-          </NavLink>
-
           {!isAuthenticated && (
             <>
               <SignUpButton />
@@ -58,19 +48,6 @@ export default function MainNavigation() {
             </>
           )}
           {isAuthenticated && <LogoutButton />}
-
-          {/* <NavLink
-            to="login"
-            className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
-          >
-            Sign Up
-          </NavLink> */}
-          {/* <NavLink
-            to="login"
-            className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
-          >
-            Log in
-          </NavLink> */}
         </div>
         <div className="flex lg:hidden">
           <button

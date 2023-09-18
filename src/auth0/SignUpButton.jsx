@@ -1,4 +1,4 @@
-import Button from "../components/UI/Button";
+import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function SignupButton() {
@@ -16,13 +16,11 @@ export default function SignupButton() {
   };
 
   return (
-    <Button
+    <Link
       onClick={handleSignUp}
-      className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
-      type="button"
-      aria-label="Sign in with Auth0"
+      className="hidden md:block text-white hover:text-banksyGray"
     >
-      Sign Up
-    </Button>
+      Sign Up <span aria-hidden="true">&rarr;</span>
+    </Link>
   );
 }

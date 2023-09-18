@@ -1,7 +1,9 @@
 import Image from "../components/UI/Image";
+import { useAuth0 } from "@auth0/auth0-react";
 import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
 export default function Home() {
+  const { isAuthenticated } = useAuth0();
   return (
     <>
       <Helmet>
@@ -25,12 +27,14 @@ export default function Home() {
                 fugiat. Quasi aperiam sit non sit neque reprehenderit.
               </p>
               <div className="mt-10 flex">
-                <NavLink
-                  to="signup"
-                  className="rounded-md bg-banksyRed px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
-                >
-                  Sign Up <span aria-hidden="true">&rarr;</span>
-                </NavLink>
+                {!isAuthenticated && (
+                  <NavLink
+                    to="signup"
+                    className="rounded-md bg-banksyRed px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed"
+                  >
+                    Sign Up <span aria-hidden="true">&rarr;</span>
+                  </NavLink>
+                )}
               </div>
             </div>
             <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
