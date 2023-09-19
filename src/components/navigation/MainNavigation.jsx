@@ -26,19 +26,20 @@ export default function MainNavigation() {
           </NavLink>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {HeaderNavigation.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.href}
-              className={({ isActive }) =>
-                isActive
-                  ? "text-banksyRed font-semibold"
-                  : "text-white hover:text-banksyGray"
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
+          {isAuthenticated &&
+            HeaderNavigation.map((link) => (
+              <NavLink
+                key={link.name}
+                to={link.href}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-banksyRed font-semibold"
+                    : "text-white hover:text-banksyGray"
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
           {!isAuthenticated && (
