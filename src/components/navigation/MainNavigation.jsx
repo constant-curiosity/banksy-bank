@@ -10,7 +10,6 @@ import LogoutButton from "../../auth0/LogOutButton";
 
 export default function MainNavigation() {
   const { isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
