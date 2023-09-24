@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { Dialog } from "@headlessui/react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { HeaderNavigation } from "../config/NavigationLinks";
 export default function MobileNavigation({
   mobileMenuOpen,
   setMobileMenuOpen,
 }) {
+  const { isAuthenticated } = useAuth0();
   return (
     <Dialog
       as="div"

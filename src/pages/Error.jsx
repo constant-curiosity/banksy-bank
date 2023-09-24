@@ -6,7 +6,6 @@ export default function Error() {
   const status = errorDetails.status || 404;
   const message = errorDetails.data.message || "Oops! Page not found!";
   const redirectMessage = errorDetails.data.redirectMessage || "Back to home";
-  const link = errorDetails.data.link || "..";
   return (
     <>
       <Helmet>
@@ -32,7 +31,7 @@ export default function Error() {
           </h1>
           <div className="mt-10 flex justify-center">
             <NavLink
-              to={link}
+              to={".."}
               className="text-lg hover:text-banksyRed font-semibold leading-7"
             >
               <span aria-hidden="true">&larr;</span> {redirectMessage}
