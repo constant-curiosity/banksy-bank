@@ -1,8 +1,8 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Auth0ProviderWithNavigate } from "./auth0/Auth0_Provider";
 import { AuthenticationGuard } from "./auth0/AuthGuard";
-import React from "react";
-import ReactDOM from "react-dom/client";
 import "./index.css";
 import RootLayout from "./pages/RootLayout";
 import ErrorPage from "./pages/Error";
