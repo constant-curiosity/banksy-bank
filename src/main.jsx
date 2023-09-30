@@ -11,7 +11,11 @@ import Crypto, { loader as cryptoLoader } from "./pages/Crypto";
 import About from "./pages/About";
 import SignUpLogIn from "./pages/SignUpLogIn";
 import FormErrorPage from "./pages/FormErrorPage";
-import AccountPage from "./pages/Account";
+//
+import AuthLayout from "./pages/AuthLayout";
+import AuthErrorPage from "./pages/AuthErrorPage";
+import Account from "./pages/Account";
+import Transaction from "./pages/Transaction";
 import Call_Back from "./pages/CallBack";
 
 const router = createBrowserRouter([
@@ -31,9 +35,21 @@ const router = createBrowserRouter([
       { path: "/signup", element: <SignUpLogIn /> },
       { path: "/login", element: <SignUpLogIn /> },
       { path: "/Signup-Login-Error", element: <FormErrorPage /> },
+    ],
+  },
+  {
+    path: "/auth",
+    element: (
+      <Auth0ProviderWithNavigate>
+        <AuthLayout />
+      </Auth0ProviderWithNavigate>
+    ),
+    errorElement: <AuthErrorPage />,
+    children: [
+      { path: "account", element: <AuthenticationGuard component={Account} /> },
       {
-        path: "/account",
-        element: <AuthenticationGuard component={AccountPage} />,
+        path: "transaction",
+        element: <AuthenticationGuard component={Transaction} />,
       },
     ],
   },

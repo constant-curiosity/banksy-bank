@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavLink } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import { HeaderNavigation } from "../config/NavigationLinks";
+import { HeaderNavigation, AuthNavigation } from "../config/NavigationLinks";
 import MobileNavigation from "./MobileNavigation";
 import LoginButton from "../../auth0/LoginButton";
 import SignUpButton from "../../auth0/SignUpButton";
@@ -11,7 +11,12 @@ import LogoutButton from "../../auth0/LogOutButton";
 export default function MainNavigation() {
   const { isAuthenticated } = useAuth0();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  let navLinks;
+  if (isAuthenticated) {
+    navLinks = AuthNavigation;
+  } else {
+    navLinks = HeaderNavigation;
+  }
   return (
     <header className="bg-banksyBGHeader">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8">
@@ -25,20 +30,19 @@ export default function MainNavigation() {
           </NavLink>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {isAuthenticated &&
-            HeaderNavigation.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.href}
-                className={({ isActive }) =>
-                  isActive
-                    ? "text-banksyRed font-semibold"
-                    : "text-white hover:text-banksyGray"
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.name}
+              to={link.href}
+              className={({ isActive }) =>
+                isActive
+                  ? "text-banksyRed font-semibold"
+                  : "text-white hover:text-banksyGray"
+              }
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
           {!isAuthenticated && (

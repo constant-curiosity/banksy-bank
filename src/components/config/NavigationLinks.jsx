@@ -5,6 +5,11 @@ export const HeaderNavigation = [
   { name: "Account", href: "account" },
 ];
 
+export const AuthNavigation = [
+  { name: "Account", href: "account" },
+  { name: "Transaction", href: "transaction" },
+];
+
 export const FooterNavigation = {
   main: [
     { name: "Home", href: "/" },
