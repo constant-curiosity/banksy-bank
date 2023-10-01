@@ -4,7 +4,7 @@ import Footer from "../components/footer/Footer";
 import LoadingCard from "../components/UI/LoadingCard";
 import Image from "../components/UI/Image";
 
-export default function RootLayout() {
+export default function AuthLayout() {
   const loading = useNavigation();
   return (
     <>

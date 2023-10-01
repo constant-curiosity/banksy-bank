@@ -2,18 +2,22 @@ export const HeaderNavigation = [
   { name: "Home", href: "/" },
   { name: "Crypto", href: "crypto" },
   { name: "About", href: "about" },
-  { name: "Account", href: "account" },
 ];
 
 export const AuthNavigation = [
-  { name: "Account", href: "account" },
-  { name: "Transaction", href: "transaction" },
+  { name: "Home", href: "/auth/home" },
+  { name: "Account", href: "/auth/account" },
+  { name: "Transaction", href: "/auth/transaction" },
 ];
 
-export const FooterNavigation = {
-  main: [
-    { name: "Home", href: "/" },
-    { name: "Crypto", href: "crypto" },
-    { name: "About", href: "about" },
-  ],
-};
+export const FooterNavigation = [
+  { name: "Home", href: "/" },
+  { name: "Crypto", href: "crypto" },
+  { name: "About", href: "about" },
+];
+
+export const AuthFootereNavigation = [
+  { name: "Home", href: "/auth/home" },
+  { name: "Account", href: "/auth/account" },
+  { name: "Transaction", href: "/auth/transaction" },
+];

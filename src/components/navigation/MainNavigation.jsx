@@ -11,18 +11,14 @@ import LogoutButton from "../../auth0/LogOutButton";
 export default function MainNavigation() {
   const { isAuthenticated } = useAuth0();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  let navLinks;
-  if (isAuthenticated) {
-    navLinks = AuthNavigation;
-  } else {
-    navLinks = HeaderNavigation;
-  }
+  const navLinks = isAuthenticated ? AuthNavigation : HeaderNavigation;
+
   return (
     <header className="bg-banksyBGHeader">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <NavLink
-            to=".."
+            to={isAuthenticated ? "/auth/home" : "/"}
             className="font-Branda-yolq text-6xl text-white hover:text-banksyGray"
             aria-label="Banksy Bank Home"
           >
@@ -45,13 +41,14 @@ export default function MainNavigation() {
           ))}
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          {!isAuthenticated && (
+          {!isAuthenticated ? (
             <>
-              <SignUpButton />
-              <LoginButton />
+              <SignUpButton className="hidden md:block text-white hover:text-banksyGray" />
+              <LoginButton className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed" />
             </>
+          ) : (
+            <LogoutButton className="rounded-md bg-banksyRed px-3 py-2 text-lg font-semibold text-white shadow-sm hover:bg-banksyHoverRed" />
           )}
-          {isAuthenticated && <LogoutButton />}
         </div>
         <div className="flex lg:hidden">
           <button
@@ -66,6 +63,7 @@ export default function MainNavigation() {
         </div>
       </nav>
       <MobileNavigation
+        navLinks={navLinks}
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
       />

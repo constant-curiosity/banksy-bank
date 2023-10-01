@@ -1,7 +1,15 @@
-import { FooterNavigation } from "../config/NavigationLinks";
+import { useAuth0 } from "@auth0/auth0-react";
+import {
+  FooterNavigation,
+  AuthFootereNavigation,
+} from "../config/NavigationLinks";
 import { NavLink } from "react-router-dom";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { isAuthenticated } = useAuth0();
+  const footerLinks = isAuthenticated
+    ? AuthFootereNavigation
+    : FooterNavigation;
 
   return (
     <footer className="bg-banksyFooter">
@@ -10,7 +18,7 @@ export default function Footer() {
           className="flex flex-row justify-center space-x-12"
           aria-label="Footer"
         >
-          {FooterNavigation.main.map((link) => (
+          {footerLinks.map((link) => (
             <div key={link.name} className="pb-6">
               <NavLink
                 to={link.href}
