@@ -2,7 +2,7 @@ import { AuthenticationGuard } from "../auth0/AuthGuard";
 import { Auth0ProviderWithNavigate } from "../auth0/Auth0_Provider";
 import Home from "../pages/Home";
 import AuthLayout from "../layout/AuthLayout";
-import AuthError from "../pages/AuthErrorPage";
+import AuthError from "../pages/AuthError";
 import Account from "../pages/Account";
 import Transaction from "../pages/Transaction";
 
