@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { NavLink } from "react-router-dom";
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import { HeaderNavigation, AuthNavigation } from "../config/NavigationLinks";
+import { HeaderNavigation, AuthNavigation } from "../../config/NavigationLinks";
 import MobileNavigation from "./MobileNavigation";
 import LoginButton from "../../auth0/LoginButton";
 import SignUpButton from "../../auth0/SignUpButton";

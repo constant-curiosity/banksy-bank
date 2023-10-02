@@ -1,66 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Auth0ProviderWithNavigate } from "./auth0/Auth0_Provider";
-import { AuthenticationGuard } from "./auth0/AuthGuard";
 import "./index.css";
-import RootLayout from "./pages/RootLayout";
-import ErrorPage from "./pages/Error";
-import Home from "./pages/Home";
-import Crypto, { loader as cryptoLoader } from "./pages/Crypto";
-import About from "./pages/About";
-import SignUpLogIn from "./pages/SignUpLogIn";
-import FormErrorPage from "./pages/FormErrorPage";
-//
-import AuthLayout from "./pages/AuthLayout";
-import AuthError from "./pages/AuthErrorPage";
-import Account from "./pages/Account";
-import Transaction from "./pages/Transaction";
-import Call_Back from "./pages/CallBack";
+import { publicRoutes } from "./routes/Public";
+import { privateRoutes } from "./routes/Private";
+import { callbackRoutes } from "./routes/CallBack";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <Auth0ProviderWithNavigate>
-        <RootLayout />
-      </Auth0ProviderWithNavigate>
-    ),
-    errorElement: <ErrorPage />,
-    children: [
-      { index: true, element: <Home /> },
-      { path: "/error", element: <ErrorPage /> },
-      { path: "/crypto", element: <Crypto />, loader: cryptoLoader },
-      { path: "/about", element: <About /> },
-    ],
-  },
-  {
-    path: "/auth",
-    element: (
-      <Auth0ProviderWithNavigate>
-        <AuthLayout />
-      </Auth0ProviderWithNavigate>
-    ),
-    errorElement: <AuthError />,
-    children: [
-      { index: true, element: <AuthenticationGuard component={Home} /> },
-      { path: "home", element: <AuthenticationGuard component={Home} /> },
-      { path: "account", element: <AuthenticationGuard component={Account} /> },
-      {
-        path: "transaction",
-        element: <AuthenticationGuard component={Transaction} />,
-      },
-      { path: "*", element: <AuthenticationGuard component={AuthError} /> },
-    ],
-  },
-  {
-    path: "/callback",
-    element: (
-      <Auth0ProviderWithNavigate>
-        <Call_Back />
-      </Auth0ProviderWithNavigate>
-    ),
-  },
+  ...publicRoutes,
+  ...privateRoutes,
+  ...callbackRoutes,
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

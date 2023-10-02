@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import {
   FooterNavigation,
   AuthFootereNavigation,
-} from "../config/NavigationLinks";
+} from "../../config/NavigationLinks";
 import { NavLink } from "react-router-dom";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
