@@ -39,7 +39,7 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
               <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
-                <img
+                <Image
                   src="/Banksy_Art/American_Depress.jpg"
                   alt="American depress card, sign your life away"
                   className="aspect-[7/5] w-[37rem] max-w-none rounded-2xl bg-gray-50 object-cover"
