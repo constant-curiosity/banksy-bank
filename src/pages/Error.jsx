@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { NavLink, useRouteError } from "react-router-dom";
 import Image from "../components/UI/Image";
+
 export default function Error() {
   const errorDetails = useRouteError();
   const status = errorDetails.status || 404;
